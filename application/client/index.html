@@ -8,10 +8,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- 📌 AngularJS를 먼저 로드 -->
+  <!-- AngularJS 먼저 로드 -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 
-  <!-- 📌 그 다음에 app.js 로드 -->
+  <!-- 그 다음에 app.js 로드 -->
   <script type="text/javascript" src="app.js"></script>
 
   <style type="text/css">
@@ -46,59 +46,18 @@
 
   <div id="body">
 
-    <!-- 기존 ABStore Init/Invoke/Delete/Query -->
-    <div class="form-group">
-      <label>초기화 (Init)</label>
-      <h5 style="color:green;margin-bottom:2%" id="success_init">{{init_ab}}</h5>
-      A 이름: <input class="form-control" type="text" placeholder="예: Hyper" ng-model="abstore.a">
-      A 금액: <input class="form-control" type="text" placeholder="예: 100" ng-model="abstore.aval">
-      B 이름: <input class="form-control" type="text" placeholder="예: Ledger" ng-model="abstore.b">
-      B 금액: <input class="form-control" type="text" placeholder="예: 0" ng-model="abstore.bval">
-      <input id="initAB" type="submit" value="초기화" class="btn btn-primary" ng-click="initAB()">
-    </div>
-
-    <div class="form-group">
-      <label>송금 (Invoke)</label>
-      <h5 style="color:green;margin-bottom:2%" id="success_invoke">{{invoke_ab}}</h5>
-      송금자 A: <input class="form-control" type="text" placeholder="예: Hyper" ng-model="abstore.a">
-      수취자 B: <input class="form-control" type="text" placeholder="예: Ledger" ng-model="abstore.b">
-      금액: <input class="form-control" type="text" placeholder="예: 10" ng-model="abstore.value">
-      <input id="invokeAB" type="submit" value="송금" class="btn btn-primary" ng-click="invokeAB()">
-    </div>
-
-    <div class="form-group">
-      <label>삭제 (Delete)</label>
-      <h5 style="color:green;margin-bottom:2%" id="success_delete">{{delete_ab}}</h5>
-      이름(A or B): <input class="form-control" type="text" placeholder="예: Hyper" ng-model="abstore.a">
-      <input id="deleteAB" type="submit" value="삭제" class="btn btn-danger" ng-click="deleteAB()">
-    </div>
-
-    <div class="form-group">
-      <label>단일 조회 (Query)</label>
-      <h5 style="color:green;margin-bottom:2%" id="success_qurey">{{query_ab}}</h5>
-      이름(A or B): <input class="form-control" type="text" placeholder="예: Hyper" ng-model="walletid">
-      <input id="queryAB" type="submit" value="조회" class="btn btn-info" ng-click="queryAB()">
-    </div>
-
-    <div class="form-group">
-      <label>전체 조회 (Query All)</label>
-      <h5 style="color:green;margin-bottom:2%" id="success_qurey_all">{{query_all}}</h5>
-      <input id="queryAll" type="submit" value="전체 조회" class="btn btn-success" ng-click="queryAll()">
-    </div>
-
-    <hr>
-
-    <!-- 깐부 대출 Loan 기능 추가 부분 -->
+    <!-- 대출 요청 생성 -->
     <div class="form-group">
       <label>대출 요청 생성</label>
       <h5 style="color:green;margin-bottom:2%" id="success_createLoan">{{create_loan}}</h5>
       대출 ID: <input class="form-control" type="text" placeholder="대출 ID 입력" ng-model="loaninfo.loanid">
       요청자 이름: <input class="form-control" type="text" placeholder="요청자 이름 입력" ng-model="loaninfo.requester">
       대출 금액: <input class="form-control" type="text" placeholder="대출 금액 입력" ng-model="loaninfo.amount">
-      대출 기간 (일수): <input class="form-control" type="text" placeholder="대출 기간 입력 (예: 30)" ng-model="loaninfo.durationDays">
+      대출 기간 (일수): <input class="form-control" type="text" placeholder="대출 기간 입력" ng-model="loaninfo.durationDays">
       <input id="createLoan" type="submit" value="대출 요청 생성" class="btn btn-primary" ng-click="createLoan()">
     </div>
 
+    <!-- 대출 요청 승인 -->
     <div class="form-group">
       <label>대출 요청 승인</label>
       <h5 style="color:green;margin-bottom:2%" id="success_approveLoan">{{approve_loan}}</h5>
@@ -107,6 +66,7 @@
       <input id="approveLoan" type="submit" value="대출 요청 승인" class="btn btn-primary" ng-click="approveLoan()">
     </div>
 
+    <!-- 대출 요청 삭제 -->
     <div class="form-group">
       <label>대출 요청 삭제</label>
       <h5 style="color:green;margin-bottom:2%" id="success_deleteLoan">{{delete_loan}}</h5>
@@ -114,6 +74,7 @@
       <input id="deleteLoan" type="submit" value="대출 요청 삭제" class="btn btn-danger" ng-click="deleteLoan()">
     </div>
 
+    <!-- 대출 요청 수정 -->
     <div class="form-group">
       <label>대출 요청 수정</label>
       <h5 style="color:green;margin-bottom:2%" id="success_updateLoan">{{update_loan}}</h5>
@@ -123,6 +84,7 @@
       <input id="updateLoan" type="submit" value="대출 요청 수정" class="btn btn-warning" ng-click="updateLoan()">
     </div>
 
+    <!-- 단일 대출 요청 조회 -->
     <div class="form-group">
       <label>대출 요청 조회</label>
       <h5 style="color:green;margin-bottom:2%" id="success_queryLoan">{{query_loan}}</h5>
@@ -130,6 +92,7 @@
       <input id="queryLoan" type="submit" value="대출 요청 조회" class="btn btn-info" ng-click="queryLoan()">
     </div>
 
+    <!-- 전체 대출 요청 조회 -->
     <div class="form-group">
       <label>전체 대출 요청 조회</label>
       <h5 style="color:green;margin-bottom:2%" id="success_queryAllLoans">{{query_all_loans}}</h5>
